@@ -23,7 +23,7 @@ const Cart = () => {
 
   const createOrder = async (data) => {
     try {
-      const res = await axios.post("https://pizza-restaurant-amber.vercel.app/api/orders", data);
+      const res = await axios.post("http://localhost:3000/api/orders", data);
       res.status === 200 && router.push(`orders/${res.data._id}`);
       dispatch(reset());
     } catch (err) {
@@ -84,7 +84,7 @@ const Cart = () => {
     );
   };
   return (
-    <div className="flex flex-col sm:flex-row py-10 sm:py-20">
+    <div className="flex flex-col py-10 sm:flex-row sm:py-20">
       <div className="flex-[2] pl-6 pr-3 mb-10 sm:mb-0 md:mb-0">
         <table className="w-[100%] sm:text-left text-center flex flex-col justify-center sm:table">
           <thead>
@@ -101,7 +101,7 @@ const Cart = () => {
             {cart.products.map((product) => (
               <tr
                 key={product._id}
-                className="flex flex-col justify-center items-center sm:table-row"
+                className="flex flex-col items-center justify-center sm:table-row"
               >
                 <td>
                   <div>
@@ -136,7 +136,7 @@ const Cart = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex-1 pr-6 pl-5">
+      <div className="flex-1 pl-5 pr-6">
         <div className="w-[100%] max-h-[300px] flex flex-col justify-center bg-black text-white p-5 rounded-md">
           <h2>CART TOTAL</h2>
           <b>Subtotal: ${cart.total}</b>
@@ -165,7 +165,7 @@ const Cart = () => {
           ) : (
             <button
               onClick={() => setOpen(true)}
-              className="bg-white text-pink-600 mt-2 rounded-md p-2"
+              className="p-2 mt-2 text-pink-600 bg-white rounded-md"
             >
               CHECKOUT NOW
             </button>
