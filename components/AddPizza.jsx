@@ -40,7 +40,7 @@ const AddPizza = ({ setClose }) => {
         setExtraOptions,
         img: url,
       };
-      await axios.post("http://localhost:3000/api/products", newProduct);
+      await axios.post("https://pizza-restaurant-amber.vercel.app/api/products", newProduct);
       setClose(true);
     } catch (err) {
       console.log(err);
@@ -51,18 +51,18 @@ const AddPizza = ({ setClose }) => {
     <div className="w-[100%] h-[100vh] sm:h-[100%] overflow-scroll bg-[rgba(245,240,240,0.52)] fixed top-0 z-50 flex justify-center items-center">
       <div className="relative w-[85%] mt-12 sm:mt-24 md:mt-32 md:mb-4 mb-1 sm:mb-3 sm:w-[500px] bg-white flex flex-col px-6 py-4 sm:px-[50px] sm:py-8 shadow-lg rounded-md justify-between">
         <span
-          className="absolute bg-black text-white rounded-full w-6 h-6 flex justify-center items-center -top-3 -right-2 cursor-pointer"
+          className="absolute flex items-center justify-center w-6 h-6 text-white bg-black rounded-full cursor-pointer -top-3 -right-2"
           onClick={() => setClose(true)}
         >
           X
         </span>
-        <h2 className="text-2xl text-black font-bold mb-4">Add a new Pizza</h2>
+        <h2 className="mb-4 text-2xl font-bold text-black">Add a new Pizza</h2>
         <div className="flex flex-col mb-2">
-          <label className="mb-2 font-normal text-sm">Choose an image</label>
+          <label className="mb-2 text-sm font-normal">Choose an image</label>
           <input type="file" onChange={(e) => setFile(e.target.files[0])} />
         </div>
         <div className="flex flex-col mb-2">
-          <label className="mb-2 font-normal text-base">Title</label>
+          <label className="mb-2 text-base font-normal">Title</label>
           <input
             type="text"
             onChange={(e) => setTitle(e.target.value)}
@@ -70,7 +70,7 @@ const AddPizza = ({ setClose }) => {
           />
         </div>
         <div className="flex flex-col mb-2">
-          <label className="mb-2 font-normal text-base">Description</label>
+          <label className="mb-2 text-base font-normal">Description</label>
           <textarea
             type="text"
             rows={2}
@@ -79,7 +79,7 @@ const AddPizza = ({ setClose }) => {
           />
         </div>
         <div className="flex flex-col my-2">
-          <label className="mb-2 font-normal text-base">Prices</label>
+          <label className="mb-2 text-base font-normal">Prices</label>
           <div className="flex justify-between">
             <input
               type="number"
@@ -102,7 +102,7 @@ const AddPizza = ({ setClose }) => {
           </div>
         </div>
         <div className="flex flex-col my-2">
-          <label className="mb-2 font-normal text-base">Extra</label>
+          <label className="mb-2 text-base font-normal">Extra</label>
           <div className="flex justify-between">
             <input
               type="text"
@@ -119,17 +119,17 @@ const AddPizza = ({ setClose }) => {
               className="border-b border-gray-500 outline-none w-[27%]"
             />
             <button
-              className="border border-slate-400 px-2"
+              className="px-2 border border-slate-400"
               onClick={handleExtra}
             >
               Add
             </button>
           </div>
-          <div className="mt-4 flex flex-wrap">
+          <div className="flex flex-wrap mt-4">
             {extraOptions.map((option) => (
               <span
                 key={option.text}
-                className="border border-orange-500 px-2 py-1 mr-2 mb-1 text-orange-400 rounded-md cursor-pointer"
+                className="px-2 py-1 mb-1 mr-2 text-orange-400 border border-orange-500 rounded-md cursor-pointer"
               >
                 {option.text}
               </span>
