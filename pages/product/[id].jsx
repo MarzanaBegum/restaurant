@@ -36,7 +36,7 @@ const Product = ({ pizza }) => {
     dispatch(addProduct({ ...pizza, extras, price, quantity }));
   };
   return (
-    <div className="flex flex-col sm:flex-row justify-center py-10 sm:py-20 md:py-16 w-full items-center sm:justify-around space-x-4">
+    <div className="flex flex-col items-center justify-center w-full py-10 space-x-4 sm:flex-row sm:py-20 md:py-16 sm:justify-around">
       <div className="mx-4 w-[60%] sm:w-[30%]">
         <Image
           src={pizza.img}
@@ -47,8 +47,8 @@ const Product = ({ pizza }) => {
         />
       </div>
       <div className="w-[87%] sm:w-[50%] mx-4">
-        <h2 className=" font-semibold text-xl mb-3">{pizza.title}</h2>
-        <p className="text-lg text-orange-700 mb-2">${price}</p>
+        <h2 className="mb-3 text-xl font-semibold ">{pizza.title}</h2>
+        <p className="mb-2 text-lg text-orange-700">${price}</p>
         <p>{pizza.desc}</p>
         <h2 className="mt-6 font-extrabold">Choose a size</h2>
         <div className="flex justify-between w-[70%] sm:w-[57%] mt-6 space-x-6">
@@ -63,7 +63,7 @@ const Product = ({ pizza }) => {
               height={"30px"}
               objectFit="contain"
             />
-            <span className="absolute -top-2 -right-6 bg-purple-600 text-white rounded-md p-1 text-xs">
+            <span className="absolute p-1 text-xs text-white bg-purple-600 rounded-md -top-2 -right-6">
               small
             </span>
           </div>
@@ -78,7 +78,7 @@ const Product = ({ pizza }) => {
               height={"50px"}
               objectFit="contain"
             />
-            <span className="absolute -top-2 -right-6 bg-purple-600 text-white rounded-md p-1 text-xs">
+            <span className="absolute p-1 text-xs text-white bg-purple-600 rounded-md -top-2 -right-6">
               Medium
             </span>
           </div>
@@ -93,15 +93,15 @@ const Product = ({ pizza }) => {
               height={"70px"}
               objectFit="contain"
             />
-            <span className="absolute -top-1 -right-2 bg-purple-600 text-white rounded-md p-1 text-xs">
+            <span className="absolute p-1 text-xs text-white bg-purple-600 rounded-md -top-1 -right-2">
               large
             </span>
           </div>
         </div>
-        <h2 className="mt-4 mb-5 text-black font-extrabold">
+        <h2 className="mt-4 mb-5 font-extrabold text-black">
           Choose additional ingredients
         </h2>
-        <div className="flex flex-col sm:flex-row justify-between">
+        <div className="flex flex-col justify-between sm:flex-row">
           {pizza.extraOptions.map((option) => (
             <div key={option._id}>
               <input
@@ -138,7 +138,7 @@ export default Product;
 
 export const getServerSideProps = async ({ params }) => {
   const res = await axios.get(
-    `http://localhost:3000/api/products/${params.id}`
+    `https://pizza-restaurant-amber.vercel.app/api/products/${params.id}`
   );
 
   return {

@@ -10,7 +10,7 @@ const Admin = ({ products, orders }) => {
   const handleDelete = async (id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/api/products/${id}`
+        `https://pizza-restaurant-amber.vercel.app/api/products/${id}`
       );
       setProductList(productList.filter((product) => product._id !== id));
     } catch (err) {
@@ -22,7 +22,7 @@ const Admin = ({ products, orders }) => {
     const item = orderList.filter((order) => order._id === id)[0];
     const currentStatus = item.status;
     try {
-      const res = await axios.put(`http://localhost:3000/api/orders/${id}`, {
+      const res = await axios.put(`https://pizza-restaurant-amber.vercel.app/api/orders/${id}`, {
         status: currentStatus + 1,
       });
       setOrderList([
@@ -148,8 +148,8 @@ export default Admin;
 
 export const getServerSideProps = async (context) => {
   const cookie = context.req?.cookies || "";
-  const ProductRes = await axios.get(`http://localhost:3000/api/products`);
-  const OrderRes = await axios.get(`http://localhost:3000/api/orders`);
+  const ProductRes = await axios.get(`https://pizza-restaurant-amber.vercel.app/api/products`);
+  const OrderRes = await axios.get(`https://pizza-restaurant-amber.vercel.app/api/orders`);
 
   if (cookie.token !== process.env.TOKEN) {
     return {

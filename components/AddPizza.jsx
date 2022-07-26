@@ -40,7 +40,7 @@ const AddPizza = ({ setClose }) => {
         setExtraOptions,
         img: url,
       };
-      await axios.post("http://localhost:3000/api/products", newProduct);
+      await axios.post("https://pizza-restaurant-amber.vercel.app/api/products", newProduct);
       setClose(true);
     } catch (err) {
       console.log(err);

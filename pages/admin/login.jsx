@@ -10,7 +10,7 @@ const Login = () => {
 
   const handleClick = async () => {
     try {
-      await axios.post("http://localhost:3000/api/login", {
+      await axios.post("https://pizza-restaurant-amber.vercel.app/api/login", {
         username,
         password,
       });
@@ -20,9 +20,9 @@ const Login = () => {
     }
   };
   return (
-    <div className="flex py-40 justify-center w-full">
-      <div className="flex flex-col w-64 sm:w-72 shadow-md p-10 border-2 border-fuchsia-300 rounded-md">
-        <h2 className="text-center text-xl mb-4 text-fuchsia-500">
+    <div className="flex justify-center w-full py-40">
+      <div className="flex flex-col w-64 p-10 border-2 rounded-md shadow-md sm:w-72 border-fuchsia-300">
+        <h2 className="mb-4 text-xl text-center text-fuchsia-500">
           Admin Dashboard
         </h2>
         <input
@@ -44,7 +44,7 @@ const Login = () => {
           Sign In
         </button>
       </div>
-      {error && <span className="text-red-600 mt-4">Wrong Credentials!</span>}
+      {error && <span className="mt-4 text-red-600">Wrong Credentials!</span>}
     </div>
   );
 };
