@@ -16,7 +16,7 @@ const PizzaCard = ({ pizza }) => {
           {pizza.title}
         </h1>
         <span className="text-fuchsia-800">${pizza.price[0]}</span>
-        <p className="mb-6 text-center text-rose-700 flex-shink-0">
+        <p className="mb-6 py-2 text-center text-rose-700 flex-shink-0 truncate w-[90%]">
           {pizza.description}
         </p>
       </div>
